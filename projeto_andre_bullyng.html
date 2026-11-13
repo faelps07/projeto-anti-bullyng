@@ -1,0 +1,1329 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Respeito em Ação | Combate ao Bullying</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0b0d10;
+    color: white;
+    line-height: 1.7;
+}
+
+:root {
+    --laranja: #ff963b;
+    --fundo: #0b0d10;
+    --cartao: #171d25;
+    --texto: #ccc;
+}
+
+header {
+    background: #141920;
+    padding: 18px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 2px solid var(--laranja);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 17px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    transition: .3s;
+}
+
+nav a:hover {
+    color: var(--laranja);
+}
+
+.hero {
+    text-align: center;
+    padding: 105px 20px;
+    background: linear-gradient(135deg, #202a35, #0b0d10);
+}
+
+.hero h1 {
+    color: var(--laranja);
+    font-size: 48px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    color: var(--texto);
+    max-width: 700px;
+    margin: 0 auto 20px;
+}
+
+.botao {
+    display: inline-block;
+    background: var(--laranja);
+    color: #111;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: .3s;
+}
+
+.botao:hover {
+    background: #ffb36e;
+    transform: translateY(-3px);
+}
+
+section {
+    padding: 70px 9%;
+    scroll-margin-top: 75px;
+}
+
+h2 {
+    color: var(--laranja);
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+h3 {
+    color: var(--laranja);
+    margin-bottom: 12px;
+}
+
+section p {
+    color: var(--texto);
+    margin-bottom: 12px;
+}
+
+.subtitulo {
+    color: #aaa;
+    margin-bottom: 25px;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+    margin-top: 25px;
+}
+
+.card {
+    background: var(--cartao);
+    border: 1px solid #333;
+    padding: 25px;
+    border-radius: 12px;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--laranja);
+}
+
+.card p {
+    margin-bottom: 0;
+}
+
+.destaque {
+    background: var(--cartao);
+    border-left: 5px solid var(--laranja);
+    padding: 23px;
+    margin-top: 25px;
+    border-radius: 8px;
+    color: #ddd;
+}
+
+.destaque strong {
+    color: var(--laranja);
+}
+
+.numero {
+    color: var(--laranja);
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.lista {
+    padding-left: 25px;
+    color: var(--texto);
+}
+
+.lista li {
+    margin-bottom: 12px;
+}
+
+.linha {
+    border: none;
+    height: 1px;
+    background: #303640;
+    margin: 25px 0;
+}
+
+.passos {
+    display: grid;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.passo {
+    background: var(--cartao);
+    border-left: 4px solid var(--laranja);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.passo h3 {
+    margin-bottom: 5px;
+}
+
+.passo p {
+    margin: 0;
+}
+
+.quiz {
+    background: var(--cartao);
+    border: 1px solid #333;
+    padding: 28px;
+    border-radius: 12px;
+    max-width: 850px;
+}
+
+.pergunta {
+    margin-bottom: 28px;
+}
+
+.pergunta p {
+    color: white;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.quiz label {
+    display: block;
+    padding: 9px;
+    color: #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.quiz label:hover {
+    background: #252e39;
+}
+
+.quiz input {
+    accent-color: var(--laranja);
+    margin-right: 8px;
+}
+
+.quiz button {
+    background: var(--laranja);
+    color: #111;
+    border: none;
+    padding: 13px 22px;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.quiz button:hover {
+    background: #ffb36e;
+}
+
+#resultado {
+    margin-top: 20px;
+    color: #ffb36e;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+#resultadoDetalhes {
+    color: #ccc;
+    margin-top: 10px;
+}
+
+.fontes a {
+    color: var(--laranja);
+    text-decoration: none;
+}
+
+.fontes a:hover {
+    text-decoration: underline;
+}
+
+.fontes li {
+    margin-bottom: 15px;
+}
+
+footer {
+    text-align: center;
+    background: #141920;
+    padding: 35px 20px;
+    border-top: 2px solid var(--laranja);
+    color: #aaa;
+}
+
+footer h3 {
+    font-size: 23px;
+}
+
+footer p {
+    margin-top: 5px;
+}
+
+.voltar {
+    display: inline-block;
+    color: var(--laranja);
+    text-decoration: none;
+    margin-top: 15px;
+}
+
+@media(max-width: 650px) {
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    nav {
+        gap: 12px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+    section {
+        padding: 50px 6%;
+    }
+
+    h2 {
+        font-size: 26px;
+    }
+
+    .quiz {
+        padding: 18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<header>
+<nav>
+    <a href="#inicio">Início</a>
+    <a href="#conceito">Conceito</a>
+    <a href="#pilares">Características</a>
+    <a href="#tipos">Tipos</a>
+    <a href="#consequencias">Consequências</a>
+    <a href="#prevencao">Prevenção</a>
+    <a href="#intervencao">Intervenção</a>
+    <a href="#leis">Legislação</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#fontes">Fontes</a>
+</nav>
+</header>
+
+<!-- INÍCIO -->
+<section class="hero" id="inicio">
+
+    <h1>RESPEITO EM AÇÃO</h1>
+
+    <p>
+        Diga não ao bullying! Pequenas atitudes podem
+        transformar a convivência e tornar a escola um
+        lugar mais acolhedor. Respeitar as diferenças
+        é o primeiro passo para uma sociedade melhor.
+    </p>
+
+    <a href="#conceito" class="botao">
+        Conheça o assunto
+    </a>
+
+</section>
+
+<!-- CONCEITO -->
+<section id="conceito">
+
+    <h2>O que é Bullying?</h2>
+
+    <p>
+        O bullying é uma forma de violência caracterizada
+        por comportamentos intencionais e repetidos que
+        procuram intimidar, humilhar ou prejudicar alguém.
+        Geralmente, acontece quando existe uma diferença
+        de poder entre as pessoas envolvidas, dificultando
+        a defesa de quem sofre as agressões.
+    </p>
+
+    <p>
+        Essas atitudes podem ocorrer por meio de palavras,
+        ações físicas, exclusão social ou ambientes digitais.
+        Embora seja bastante associado às escolas, o bullying
+        também pode acontecer em outros espaços de convivência.
+    </p>
+
+    <div class="destaque">
+        <strong>Importante:</strong> Nem toda brincadeira é
+        inofensiva. Quando uma atitude causa humilhação,
+        medo ou sofrimento, ela precisa ser levada a sério.
+        O respeito deve estar presente em todas as relações.
+    </div>
+
+</section>
+
+<!-- CARACTERÍSTICAS -->
+<section id="pilares">
+
+    <h2>As três características principais</h2>
+
+    <p>
+        Para compreender melhor o bullying, é importante
+        conhecer três elementos que ajudam a identificar
+        esse tipo de comportamento.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="numero">01</div>
+            <h3>Intencionalidade</h3>
+            <p>
+                A atitude é praticada com a intenção de
+                intimidar, constranger ou causar sofrimento
+                a outra pessoa.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="numero">02</div>
+            <h3>Repetição</h3>
+            <p>
+                O comportamento acontece várias vezes
+                ao longo do tempo, não sendo apenas
+                um desentendimento isolado.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="numero">03</div>
+            <h3>Desequilíbrio de poder</h3>
+            <p>
+                Existe uma desigualdade física, social,
+                emocional ou numérica que dificulta
+                a reação de quem está sendo intimidado.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- TIPOS -->
+<section id="tipos">
+
+    <h2>Tipos de Bullying</h2>
+
+    <p>
+        O bullying pode se manifestar de diferentes maneiras.
+        Conhecer essas formas ajuda a reconhecer situações
+        que muitas vezes passam despercebidas.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Bullying físico</h3>
+            <p>
+                Envolve agressões corporais, empurrões,
+                intimidações físicas e atitudes que
+                prejudicam a integridade de alguém.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Bullying verbal</h3>
+            <p>
+                Acontece por meio de insultos, apelidos
+                ofensivos, ameaças, comentários maldosos
+                e palavras utilizadas para humilhar.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Bullying moral</h3>
+            <p>
+                Está relacionado à difamação, divulgação
+                de mentiras, acusações falsas e situações
+                que prejudicam a reputação de alguém.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Bullying psicológico</h3>
+            <p>
+                Envolve intimidação, perseguição,
+                constrangimento e comportamentos que
+                afetam a segurança emocional da pessoa.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Bullying social</h3>
+            <p>
+                Ocorre quando alguém é deixado de fora
+                propositalmente, isolado de grupos ou
+                alvo de manipulações entre colegas.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Bullying material</h3>
+            <p>
+                Envolve pegar, esconder, danificar ou
+                destruir objetos e pertences de outra pessoa
+                como forma de intimidação.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Cyberbullying</h3>
+            <p>
+                É praticado por meios digitais, como redes
+                sociais, aplicativos e jogos on-line, através
+                de ofensas, ameaças ou exposições humilhantes.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONSEQUÊNCIAS -->
+<section id="consequencias">
+
+    <h2>Consequências do Bullying</h2>
+
+    <p>
+        As consequências podem variar de acordo com cada
+        pessoa e com a intensidade das situações vividas.
+        Seus efeitos podem atingir diferentes áreas da vida.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Emocionais</h3>
+            <p>
+                Pode provocar tristeza, insegurança,
+                ansiedade, medo e diminuição da
+                autoestima.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Sociais</h3>
+            <p>
+                Pode dificultar amizades, prejudicar
+                a convivência e provocar afastamento
+                de atividades em grupo.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Escolares</h3>
+            <p>
+                Pode causar dificuldade de concentração,
+                desmotivação para estudar e queda
+                no rendimento escolar.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Físicas</h3>
+            <p>
+                O estresse relacionado às agressões
+                pode estar associado a dores de cabeça,
+                problemas de sono e outros desconfortos.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="destaque">
+        <strong>Não existe sofrimento pequeno:</strong>
+        cada situação merece atenção. Acolher, ouvir
+        e procurar ajuda são atitudes fundamentais
+        para proteger quem está passando por isso.
+    </div>
+
+</section>
+
+<!-- IDENTIFICAÇÃO -->
+<section id="identificacao">
+
+    <h2>Como identificar possíveis situações?</h2>
+
+    <p>
+        Algumas mudanças de comportamento podem indicar
+        que um estudante está enfrentando dificuldades
+        na convivência escolar.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Mudanças no comportamento</h3>
+            <p>
+                A pessoa pode ficar mais quieta,
+                demonstrar insegurança ou evitar
+                determinadas situações.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Afastamento dos colegas</h3>
+            <p>
+                Pode começar a evitar atividades
+                coletivas, intervalos e momentos
+                de interação.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Alterações escolares</h3>
+            <p>
+                Podem surgir faltas frequentes,
+                dificuldade de concentração e
+                desinteresse pelas aulas.
+            </p>
+        </div>
+
+    </div>
+
+    <p style="margin-top:20px">
+        Esses sinais não comprovam, sozinhos, que existe
+        bullying. É importante conversar com a pessoa
+        e buscar orientação da equipe escolar.
+    </p>
+
+</section>
+
+<!-- PREVENÇÃO -->
+<section id="prevencao">
+
+    <h2>Como prevenir o Bullying?</h2>
+
+    <p>
+        A prevenção começa com atitudes diárias.
+        Cada integrante da comunidade escolar pode
+        contribuir para uma convivência mais respeitosa.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Respeitar as diferenças</h3>
+            <p>
+                Valorizar as características, opiniões,
+                culturas e individualidades de cada pessoa.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Praticar a empatia</h3>
+            <p>
+                Pensar nas consequências das próprias
+                atitudes e considerar os sentimentos
+                dos outros.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Promover o diálogo</h3>
+            <p>
+                Conversar sobre conflitos e buscar
+                soluções sem agressões ou humilhações.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Valorizar a inclusão</h3>
+            <p>
+                Evitar exclusões e incentivar a
+                participação de todos nas atividades.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Usar a internet com responsabilidade</h3>
+            <p>
+                Não divulgar conteúdos ofensivos,
+                respeitar a privacidade e denunciar
+                publicações abusivas.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Incentivar o respeito</h3>
+            <p>
+                Demonstrar, por meio de atitudes,
+                que brincadeiras não devem servir
+                para diminuir ou constranger alguém.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- INTERVENÇÃO -->
+<section id="intervencao">
+
+    <h2>Propostas de Intervenção</h2>
+
+    <p>
+        Combater o bullying exige mais do que conscientizar:
+        é necessário desenvolver ações contínuas, acompanhar
+        os resultados e envolver toda a comunidade escolar.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>01. Campanhas de conscientização</h3>
+            <p>
+                Produzir cartazes, vídeos, apresentações
+                e murais informativos. Os estudantes podem
+                participar da criação das campanhas,
+                divulgando mensagens sobre respeito
+                e inclusão.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>02. Caixa de escuta e acolhimento</h3>
+            <p>
+                Disponibilizar um espaço reservado para
+                que os estudantes comuniquem situações
+                preocupantes. A equipe responsável deve
+                acompanhar os relatos e preservar a
+                privacidade dos envolvidos.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>03. Rodas de conversa</h3>
+            <p>
+                Organizar encontros com alunos, professores
+                e profissionais convidados para discutir
+                respeito, empatia, convivência e maneiras
+                de resolver conflitos.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>04. Projeto Aluno Acolhedor</h3>
+            <p>
+                Criar uma iniciativa de incentivo à
+                solidariedade, na qual estudantes
+                participem de atividades de integração
+                e acolhimento, com orientação de educadores.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>05. Formação dos professores</h3>
+            <p>
+                Promover capacitações para que os
+                profissionais saibam reconhecer sinais
+                de intimidação, acolher relatos e
+                encaminhar cada situação adequadamente.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>06. Participação das famílias</h3>
+            <p>
+                Realizar reuniões e encontros educativos
+                para aproximar responsáveis e escola,
+                fortalecendo a comunicação e a prevenção.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>07. Acompanhamento dos casos</h3>
+            <p>
+                Criar um procedimento de registro e
+                acompanhamento das ocorrências, verificando
+                se as medidas adotadas estão funcionando
+                e evitando novas situações.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>08. Semana do Respeito</h3>
+            <p>
+                Reservar uma semana para atividades
+                educativas, apresentações, dinâmicas
+                de grupo e debates sobre convivência
+                e valorização das diferenças.
+            </p>
+        </div>
+
+    </div>
+
+    <div class="destaque">
+        <strong>Proposta principal:</strong> transformar
+        o combate ao bullying em um projeto permanente
+        da escola, com participação dos alunos, educadores,
+        famílias e direção. As ações não devem acontecer
+        apenas quando um problema aparece.
+    </div>
+
+</section>
+
+<!-- PLANO DE AÇÃO -->
+<section id="plano">
+
+    <h2>Como colocar as propostas em prática?</h2>
+
+    <p>
+        Para que as ideias realmente funcionem, é importante
+        organizar um plano de ação com etapas e responsáveis.
+    </p>
+
+    <div class="passos">
+
+        <div class="passo">
+            <h3>1. Identificar</h3>
+            <p>
+                Ouvir os estudantes e observar os espaços
+                onde podem ocorrer situações de exclusão
+                ou intimidação.
+            </p>
+        </div>
+
+        <div class="passo">
+            <h3>2. Planejar</h3>
+            <p>
+                Definir quais campanhas e atividades
+                serão realizadas, quem participará
+                e quais recursos serão necessários.
+            </p>
+        </div>
+
+        <div class="passo">
+            <h3>3. Executar</h3>
+            <p>
+                Colocar as ações em prática com a
+                colaboração de alunos, professores,
+                direção e famílias.
+            </p>
+        </div>
+
+        <div class="passo">
+            <h3>4. Acompanhar</h3>
+            <p>
+                Verificar a participação dos estudantes,
+                ouvir opiniões e acompanhar situações
+                comunicadas à escola.
+            </p>
+        </div>
+
+        <div class="passo">
+            <h3>5. Avaliar e melhorar</h3>
+            <p>
+                Analisar os resultados e adaptar as
+                atividades para que a prevenção
+                continue durante o ano letivo.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- O QUE FAZER -->
+<section id="medidas">
+
+    <h2>O que fazer diante do Bullying?</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Se você sofre</h3>
+            <p>
+                Converse com alguém de confiança,
+                procure um professor ou a direção
+                e não enfrente a situação sozinho.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Se você presencia</h3>
+            <p>
+                Não incentive as agressões, não
+                compartilhe conteúdos ofensivos
+                e procure ajuda de um adulto.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Se você é responsável por um aluno</h3>
+            <p>
+                Escute sem julgar, converse com
+                a escola e acompanhe as medidas
+                tomadas para proteger o estudante.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Se você é educador</h3>
+            <p>
+                Acolha o relato, registre a situação,
+                comunique os responsáveis conforme
+                o protocolo escolar e acompanhe o caso.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- LEGISLAÇÃO -->
+<section id="leis">
+
+    <h2>Leis contra o Bullying no Brasil</h2>
+
+    <p>
+        O Brasil possui normas que orientam a prevenção
+        e o enfrentamento da intimidação sistemática,
+        incluindo situações que acontecem pela internet.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Lei nº 13.185/2015</h3>
+            <p>
+                Criou o Programa de Combate à Intimidação
+                Sistemática. A lei estabelece ações de
+                prevenção, conscientização e enfrentamento
+                do bullying em todo o país.
+            </p>
+            <a class="voltar"
+               href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13185.htm"
+               target="_blank">
+                Consultar a lei →
+            </a>
+        </div>
+
+        <div class="card">
+            <h3>Lei nº 14.811/2024</h3>
+            <p>
+                Estabeleceu medidas de proteção contra
+                a violência em ambientes educacionais
+                e incluiu no Código Penal os crimes de
+                intimidação sistemática e intimidação
+                sistemática virtual.
+            </p>
+            <a class="voltar"
+               href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/lei/l14811.htm"
+               target="_blank">
+                Consultar a lei →
+            </a>
+        </div>
+
+    </div>
+
+    <div class="destaque">
+        <strong>Atenção:</strong> A Lei 14.811/2024 acrescentou
+        o artigo 146-A ao Código Penal. A aplicação da
+        legislação depende das características e
+        circunstâncias de cada caso.
+    </div>
+
+</section>
+
+<!-- AJUDA -->
+<section id="ajuda">
+
+    <h2>Onde buscar ajuda?</h2>
+
+    <p>
+        Quando uma situação de bullying acontece, é
+        importante procurar pessoas e instituições
+        que possam oferecer orientação e proteção.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Escola</h3>
+            <p>
+                Professores, coordenação pedagógica
+                e direção podem acolher relatos
+                e organizar medidas de proteção.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Família</h3>
+            <p>
+                Pais e responsáveis podem oferecer
+                apoio, escutar e ajudar a buscar
+                orientação adequada.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>Disque 100</h3>
+            <p>
+                Canal nacional para receber denúncias
+                de violações de direitos humanos,
+                incluindo situações envolvendo
+                crianças e adolescentes.
+            </p>
+            <a class="voltar"
+               href="https://www.gov.br/mdh/pt-br/ondh"
+               target="_blank">
+                Informações oficiais →
+            </a>
+        </div>
+
+    </div>
+
+    <div class="destaque">
+        Se você ou alguém próximo estiver passando
+        por uma situação de violência, procure um
+        adulto de confiança e peça ajuda. Ninguém
+        precisa enfrentar isso sozinho.
+
+        <br><br>
+        Este site possui finalidade educativa e não
+        recebe denúncias.
+    </div>
+
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+
+    <h2>Quiz: Teste seus conhecimentos!</h2>
+
+    <p class="subtitulo">
+        Responda às cinco perguntas e descubra
+        o quanto você aprendeu sobre o assunto.
+    </p>
+
+    <div class="quiz">
+
+        <form id="formQuiz">
+
+            <div class="pergunta">
+                <p>1. Qual característica está relacionada ao bullying?</p>
+
+                <label>
+                    <input type="radio" name="q1" value="a">
+                    A) Uma discussão isolada.
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="b">
+                    B) Intenção, repetição e desequilíbrio de poder.
+                </label>
+
+                <label>
+                    <input type="radio" name="q1" value="c">
+                    C) Uma brincadeira entre amigos.
+                </label>
+            </div>
+
+            <div class="pergunta">
+                <p>2. O que é cyberbullying?</p>
+
+                <label>
+                    <input type="radio" name="q2" value="a">
+                    A) Intimidação praticada em ambientes digitais.
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="b">
+                    B) Estudar pela internet.
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="c">
+                    C) Jogar on-line com amigos.
+                </label>
+            </div>
+
+            <div class="pergunta">
+                <p>3. Qual atitude ajuda a prevenir o bullying?</p>
+
+                <label>
+                    <input type="radio" name="q3" value="a">
+                    A) Excluir pessoas dos grupos.
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="b">
+                    B) Ignorar quem precisa de ajuda.
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="c">
+                    C) Respeitar as diferenças e praticar empatia.
+                </label>
+            </div>
+
+            <div class="pergunta">
+                <p>4. Qual é uma proposta de intervenção escolar?</p>
+
+                <label>
+                    <input type="radio" name="q4" value="a">
+                    A) Promover rodas de conversa e campanhas educativas.
+                </label>
+
+                <label>
+                    <input type="radio" name="q4" value="b">
+                    B) Incentivar competições de popularidade.
+                </label>
+
+                <label>
+                    <input type="radio" name="q4" value="c">
+                    C) Ignorar os relatos dos estudantes.
+                </label>
+            </div>
+
+            <div class="pergunta">
+                <p>5. O que fazer ao presenciar uma situação de bullying?</p>
+
+                <label>
+                    <input type="radio" name="q5" value="a">
+                    A) Compartilhar a situação nas redes sociais.
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="b">
+                    B) Incentivar quem está praticando.
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="c">
+                    C) Procurar ajuda e apoiar a pessoa afetada.
+                </label>
+            </div>
+
+            <button type="submit">Conferir respostas</button>
+
+            <button type="reset" style="margin-left:8px">
+                Refazer quiz
+            </button>
+
+            <p id="resultado"></p>
+            <p id="resultadoDetalhes"></p>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- FONTES -->
+<section id="fontes">
+
+    <h2>Fontes de Pesquisa</h2>
+
+    <p>
+        Os materiais abaixo servem como referência
+        para aprofundar os conhecimentos sobre bullying,
+        prevenção, legislação e proteção dos estudantes.
+    </p>
+
+    <ul class="lista fontes">
+
+        <li>
+            <strong>Planalto – Lei nº 13.185/2015:</strong>
+            Programa de Combate à Intimidação Sistemática.
+            <br>
+            <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13185.htm"
+               target="_blank">Acessar legislação</a>
+        </li>
+
+        <li>
+            <strong>Planalto – Lei nº 14.811/2024:</strong>
+            Medidas de proteção contra a violência
+            em ambientes educacionais.
+            <br>
+            <a href="https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2024/lei/l14811.htm"
+               target="_blank">Acessar legislação</a>
+        </li>
+
+        <li>
+            <strong>UNICEF Brasil:</strong>
+            Informações e iniciativas relacionadas
+            à proteção de crianças e adolescentes.
+            <br>
+            <a href="https://www.unicef.org/brazil/"
+               target="_blank">Acessar site</a>
+        </li>
+
+        <li>
+            <strong>Associação Brasileira de Psiquiatria:</strong>
+            Materiais de orientação e conscientização
+            sobre saúde mental.
+            <br>
+            <a href="https://www.abp.org.br/"
+               target="_blank">Acessar site</a>
+        </li>
+
+        <li>
+            <strong>Conselho Nacional de Justiça (CNJ):</strong>
+            Informações sobre campanhas e ações
+            relacionadas à justiça e cidadania.
+            <br>
+            <a href="https://www.cnj.jus.br/"
+               target="_blank">Acessar site</a>
+        </li>
+
+        <li>
+            <strong>Instituto Ayrton Senna:</strong>
+            Conteúdos sobre educação e desenvolvimento
+            de competências socioemocionais.
+            <br>
+            <a href="https://institutoayrtonsenna.org.br/"
+               target="_blank">Acessar site</a>
+        </li>
+
+        <li>
+            <strong>Brasil Escola:</strong>
+            Conteúdos educativos sobre o conceito,
+            os tipos e as consequências do bullying.
+            <br>
+            <a href="https://brasilescola.uol.com.br/sociologia/bullying.htm"
+               target="_blank">Acessar conteúdo</a>
+        </li>
+
+        <li>
+            <strong>Ministério dos Direitos Humanos:</strong>
+            Orientações sobre direitos humanos
+            e canais de atendimento.
+            <br>
+            <a href="https://www.gov.br/mdh/pt-br"
+               target="_blank">Acessar site</a>
+        </li>
+
+    </ul>
+
+</section>
+
+<!-- RODAPÉ -->
+<footer>
+
+    <h3>RESPEITO EM AÇÃO</h3>
+
+    <p>Juntos podemos construir um ambiente melhor!</p>
+
+    <p>Projeto educativo sobre prevenção e combate ao bullying.</p>
+
+    <p>O respeito transforma. A empatia aproxima. A união fortalece.</p>
+
+    <a href="#inicio" class="voltar">Voltar ao início ↑</a>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+<script>
+
+const respostas = {
+    q1: "b",
+    q2: "a",
+    q3: "c",
+    q4: "a",
+    q5: "c"
+};
+
+document.getElementById("formQuiz").addEventListener("submit",
+function(event) {
+
+    event.preventDefault();
+
+    let pontos = 0;
+    let total = Object.keys(respostas).length;
+
+    for (let pergunta in respostas) {
+
+        let selecionada = document.querySelector(
+            'input[name="' + pergunta + '"]:checked'
+        );
+
+        if (!selecionada) {
+
+            document.getElementById("resultado").textContent =
+                "Responda todas as perguntas antes de conferir!";
+
+            document.getElementById("resultadoDetalhes").textContent = "";
+
+            return;
+        }
+
+        if (selecionada.value === respostas[pergunta]) {
+            pontos++;
+        }
+    }
+
+    let resultado = document.getElementById("resultado");
+    let detalhes = document.getElementById("resultadoDetalhes");
+
+    resultado.textContent =
+        "Você acertou " + pontos + " de " + total + " questões!";
+
+    if (pontos === 5) {
+        detalhes.textContent =
+            "Excelente! Você demonstrou que compreendeu muito bem o assunto.";
+    }
+
+    else if (pontos >= 3) {
+        detalhes.textContent =
+            "Muito bem! Você está no caminho certo. Continue aprendendo!";
+    }
+
+    else {
+        detalhes.textContent =
+            "Continue estudando! Revise as informações do site e tente novamente.";
+    }
+
+});
+
+document.getElementById("formQuiz").addEventListener("reset",
+function() {
+
+    document.getElementById("resultado").textContent = "";
+    document.getElementById("resultadoDetalhes").textContent = "";
+
+});
+
+</script>
+
+</body>
+</html>
